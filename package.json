@@ -1,0 +1,65 @@
+{
+  "name": "InspectionLot",
+  "version": "1.0.0",
+  "description": "A simple CAP project.",
+  "repository": "<Add your repository here>",
+  "license": "UNLICENSED",
+  "private": true,
+  "dependencies": {
+    "@sap-cloud-sdk/http-client": "^3.22.2",
+    "@sap-cloud-sdk/resilience": "^3.22.2",
+    "@sap/cds": "^8",
+    "@sap/cds-compiler": "^5.4.2",
+    "axios": "^1.7.7",
+    "express": "^4",
+    "xmlbuilder2": "^3.1.1"
+  },
+  "devDependencies": {
+    "@cap-js/cds-types": "^0.6",
+    "@cap-js/sqlite": "^1",
+    "@sap/ux-specification": "UI5-1.130"
+  },
+  "scripts": {
+    "start": "cds-serve",
+    "watch-inspectionlot": "cds watch --open inspectionlot/webapp/index.html?sap-ui-xx-viewCache=false"
+  },
+  "cds": {
+    "requires": {
+      "API_INSPECTIONLOT_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_INSPECTIONLOT_SRV",
+        "csrf": true,
+        "csrfInBatch": true,
+        "[production]": {
+          "credentials": {
+            "destination": "S4HANA",
+            "path": "/sap/opu/odata/sap/API_INSPECTIONLOT_SRV"
+          }
+        }
+      },
+      "USAGEDECISIONSELDCODESET_0001": {
+        "kind": "odata",
+        "model": "srv/external/USAGEDECISIONSELDCODESET_0001"
+      },
+      "API_PRODUCT_SRV": {
+        "kind": "odata-v2",
+        "model": "srv/external/API_PRODUCT_SRV",
+        "csrf": true,
+        "csrfInBatch": true,
+        "[production]": {
+          "credentials": {
+            "destination": "S4HANA",
+            "path": "/sap/opu/odata/sap/API_PRODUCT_SRV"
+          }
+        }
+      },
+      "YY1_INSPECTIONLOT_CDS_0001": {
+        "kind": "odata-v2",
+        "model": "srv/external/YY1_INSPECTIONLOT_CDS_0001"
+      }
+    }
+  },
+  "sapux": [
+    "app/inspectionlot"
+  ]
+}

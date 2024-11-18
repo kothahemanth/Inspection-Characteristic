@@ -1,0 +1,401 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.3.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "USAGEDECISIONSELDCODESET_0001": {
+   "kind": "service",
+   "@cds.external": true,
+   "@Aggregation.ApplySupported": {
+    "Transformations": [
+     "aggregate",
+     "groupby",
+     "filter"
+    ],
+    "Rollup": {
+     "#": "None"
+    }
+   },
+   "@Common.ApplyMultiUnitBehaviorForSortingAndFiltering": true,
+   "@Capabilities.FilterFunctions": [
+    "eq",
+    "ne",
+    "gt",
+    "ge",
+    "lt",
+    "le",
+    "and",
+    "or",
+    "contains",
+    "startswith",
+    "endswith",
+    "any",
+    "all"
+   ],
+   "@Capabilities.SupportedFormats": [
+    "application/json",
+    "application/pdf"
+   ],
+   "@PDF.Features": {
+    "DocumentDescriptionReference": "../../../../default/iwbep/common/0001/$metadata",
+    "DocumentDescriptionCollection": "MyDocumentDescriptions",
+    "ArchiveFormat": true,
+    "Border": true,
+    "CoverPage": true,
+    "FitToPage": true,
+    "FontName": true,
+    "FontSize": true,
+    "Margin": true,
+    "Padding": true,
+    "Signature": true,
+    "HeaderFooter": true,
+    "ResultSizeDefault": 20000,
+    "ResultSizeMaximum": 20000,
+    "IANATimezoneFormat": true,
+    "Treeview": true
+   },
+   "@Capabilities.KeyAsSegmentSupported": true,
+   "@Capabilities.AsynchronousRequestsSupported": true
+  },
+  "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeGroupText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "SelectedCodeSetPlant": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Plant",
+     "@Common.Heading": "Plnt"
+    },
+    "SelectedCodeSet": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Selected Set",
+     "@Common.Heading": "Sel. Set"
+    },
+    "UsageDecisionCodeGroup": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code Group"
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "notNull": true,
+     "@Common.Label": "Language Key",
+     "@Common.Heading": "Language"
+    },
+    "UsageDecisionCodeGroupText": {
+     "type": "cds.String",
+     "length": 40,
+     "notNull": true,
+     "@Common.Label": "Code Group Text",
+     "@Common.QuickInfo": "Text for Code Group"
+    }
+   },
+   "@Common.Label": "Code Group Text",
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  },
+  "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeSetText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "SelectedCodeSetPlant": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Plant",
+     "@Common.Heading": "Plnt"
+    },
+    "SelectedCodeSet": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Selected Set",
+     "@Common.Heading": "Sel. Set"
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "notNull": true,
+     "@Common.Label": "Language Key",
+     "@Common.Heading": "Language"
+    },
+    "SelectedCodeSetText": {
+     "type": "cds.String",
+     "length": 40,
+     "notNull": true,
+     "@Common.Label": "Short Text",
+     "@Common.QuickInfo": "Short Description of Selected Set"
+    },
+    "_UsageDcsnSelectedCodeSet": {
+     "type": "cds.Association",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSelectedCodeSet",
+     "cardinality": {
+      "max": 1
+     },
+     "keys": []
+    }
+   },
+   "@Common.Label": "Selected Set Text",
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.NonUpdatableNavigationProperties": [
+    "_UsageDcsnSelectedCodeSet"
+   ],
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  },
+  "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeText": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "SelectedCodeSetPlant": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Plant",
+     "@Common.Heading": "Plnt"
+    },
+    "SelectedCodeSet": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Selected Set",
+     "@Common.Heading": "Sel. Set"
+    },
+    "UsageDecisionCodeGroup": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code Group"
+    },
+    "UsageDecisionCode": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code"
+    },
+    "Language": {
+     "key": true,
+     "type": "cds.String",
+     "length": 2,
+     "notNull": true,
+     "@Common.Label": "Language Key",
+     "@Common.Heading": "Language"
+    },
+    "UsageDecisionCodeText": {
+     "type": "cds.String",
+     "length": 40,
+     "notNull": true,
+     "@Common.Label": "Code Text",
+     "@Common.QuickInfo": "Text for Code"
+    }
+   },
+   "@Common.Label": "Code Text",
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  },
+  "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSelectedCode": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "SelectedCodeSetPlant": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Plant",
+     "@Common.Heading": "Plnt"
+    },
+    "SelectedCodeSet": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Selected Set",
+     "@Common.Heading": "Sel. Set"
+    },
+    "UsageDecisionCodeGroup": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code Group"
+    },
+    "UsageDecisionCode": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code"
+    },
+    "InspLotUsageDecisionValuation": {
+     "type": "cds.String",
+     "length": 1,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Code Valuation",
+     "@Common.Heading": "V"
+    },
+    "InspectionLotQualityScore": {
+     "type": "cds.Integer",
+     "notNull": true,
+     "@Common.Label": "Quality Score",
+     "@Common.Heading": "Q-Score"
+    },
+    "_SelectedCodeSet": {
+     "type": "cds.Association",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSelectedCodeSet",
+     "cardinality": {
+      "max": 1
+     },
+     "keys": []
+    },
+    "_UsageDcsnSeldCodeGrpTxt": {
+     "type": "cds.Association",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeGroupText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    },
+    "_UsageDcsnSeldCodeTxt": {
+     "type": "cds.Association",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": []
+    }
+   },
+   "@Common.Label": "Usage Decision Code",
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.NonUpdatableNavigationProperties": [
+    "_SelectedCodeSet",
+    "_UsageDcsnSeldCodeGrpTxt",
+    "_UsageDcsnSeldCodeTxt"
+   ],
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  },
+  "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSelectedCodeSet": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "elements": {
+    "SelectedCodeSetPlant": {
+     "key": true,
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Plant",
+     "@Common.Heading": "Plnt"
+    },
+    "SelectedCodeSet": {
+     "key": true,
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Selected Set",
+     "@Common.Heading": "Sel. Set"
+    },
+    "InspectionSelectedSetStatus": {
+     "type": "cds.String",
+     "length": 1,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Status of Code Group",
+     "@Common.Heading": "St",
+     "@Common.QuickInfo": "Status of Master Record"
+    },
+    "SelectedCodeSetDfltCodeGroup": {
+     "type": "cds.String",
+     "length": 8,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Default Code Group"
+    },
+    "SelectedCodeSetDefaultCode": {
+     "type": "cds.String",
+     "length": 4,
+     "notNull": true,
+     "@Common.IsUpperCase": true,
+     "@Common.Label": "Default Code"
+    },
+    "_SelectedCodeSetText": {
+     "type": "cds.Composition",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSeldCodeSetText",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": [],
+     "@Common.Composition": true
+    },
+    "_SelectedSetCode": {
+     "type": "cds.Composition",
+     "target": "USAGEDECISIONSELDCODESET_0001.UsgeDcsnSelectedCode",
+     "cardinality": {
+      "max": "*"
+     },
+     "keys": [],
+     "@Common.Composition": true
+    }
+   },
+   "@Common.Label": "Selected Set",
+   "@Capabilities.SearchRestrictions.Searchable": false,
+   "@Capabilities.InsertRestrictions.Insertable": false,
+   "@Capabilities.DeleteRestrictions.Deletable": false,
+   "@Capabilities.UpdateRestrictions.Updatable": false,
+   "@Capabilities.UpdateRestrictions.NonUpdatableNavigationProperties": [
+    "_SelectedCodeSetText",
+    "_SelectedSetCode"
+   ],
+   "@Capabilities.UpdateRestrictions.QueryOptions.SelectSupported": true
+  }
+ }
+}

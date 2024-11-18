@@ -1,0 +1,65 @@
+{
+ "meta": {
+  "creator": "cds-dk 8.3.0"
+ },
+ "$version": "2.0",
+ "definitions": {
+  "YY1_INSPECTIONLOT_CDS_0001": {
+   "kind": "service",
+   "@cds.external": true,
+   "@m.IsDefaultEntityContainer": "true",
+   "@sap.message.scope.supported": "true",
+   "@sap.supported.formats": "atom json xlsx"
+  },
+  "YY1_INSPECTIONLOT_CDS_0001.YY1_inspectionlot": {
+   "kind": "entity",
+   "@cds.external": true,
+   "@cds.persistence.skip": true,
+   "@sap.creatable": "false",
+   "@sap.updatable": "false",
+   "@sap.deletable": "false",
+   "@sap.content.version": "1",
+   "@sap.label": "inspectionlot",
+   "elements": {
+    "InspectionLot": {
+     "key": true,
+     "type": "cds.String",
+     "length": 12,
+     "@sap.display.format": "NonNegative",
+     "@sap.required.in.filter": "false",
+     "@sap.label": "Inspection Lot",
+     "@sap.quickinfo": "Inspection Lot Number",
+     "notNull": true
+    },
+    "InspLotUsageDecisionLongText": {
+     "type": "cds.LargeString",
+     "@sap.required.in.filter": "false",
+     "@sap.label": "Long Text"
+    },
+    "Plant": {
+     "type": "cds.String",
+     "length": 4,
+     "@sap.display.format": "UpperCase",
+     "@sap.required.in.filter": "false",
+     "@sap.label": "Plant"
+    },
+    "Batch": {
+     "type": "cds.String",
+     "length": 10,
+     "@sap.display.format": "UpperCase",
+     "@sap.required.in.filter": "false",
+     "@sap.label": "Batch",
+     "@sap.quickinfo": "Batch Number"
+    },
+    "Material": {
+     "type": "cds.String",
+     "length": 40,
+     "@sap.display.format": "UpperCase",
+     "@sap.required.in.filter": "false",
+     "@sap.label": "Material",
+     "@sap.quickinfo": "Material Number"
+    }
+   }
+  }
+ }
+}
