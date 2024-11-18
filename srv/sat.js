@@ -55,7 +55,6 @@ module.exports = cds.service.impl(async function () {
             const inspectionLotId = req.params[0].InspectionLot;
             console.log(`Fetching data for InspectionLot: ${inspectionLotId}`);
     
-            // Fetch data for the Inspection Lot and related entities
             const lotData = await inspectionLots.run(SELECT.from(InspectionLot).where({ InspectionLot: inspectionLotId }));
             if (!lotData.length) {
                 req.error(404, `InspectionLot ${inspectionLotId} not found.`);
@@ -68,7 +67,6 @@ module.exports = cds.service.impl(async function () {
             const resValueData = await inspectionLots.run(SELECT.from(this.entities.InspectionResultValue).where({ InspectionLot: inspectionLotId }));
             const usagevalData = await inspectionLots.run(SELECT.from(this.entities.InspectionUsageValue).where({ InspectionLot: inspectionLotId }));
     
-            // Fetch ProductDescription for the Material
             const materials = [...new Set(lotData.map(lot => lot.Material))];
             let materialDescriptions = [];
             if (materials.length > 0) {
@@ -80,7 +78,6 @@ module.exports = cds.service.impl(async function () {
                 );
             }
     
-            // Fetch SelectedCodeSetText for Usage Decision
             const selectedCodeSets = usagevalData.map(val => val.InspLotUsgeDcsnSelectedSet).filter(Boolean);
             let selectedCodeTexts = [];
             if (selectedCodeSets.length > 0) {
@@ -92,7 +89,6 @@ module.exports = cds.service.impl(async function () {
                 );
             }
     
-            // Fetch UsageDecisionCodeText
             let decisionCodeTexts = [];
             try {
                 const decisionCodeFilter = usagevalData.map(val => ({
@@ -115,7 +111,6 @@ module.exports = cds.service.impl(async function () {
                 console.error("Error fetching decisioncodeset data:", error.message);
             }
     
-            // Fetch Long Text for Inspection Lot
             let longTexts = [];
             try {
                 longTexts = await longtxt.run(
@@ -128,7 +123,6 @@ module.exports = cds.service.impl(async function () {
                 console.error("Error fetching longtext data:", error.message);
             }
     
-            // Construct structured data for XML generation
             const structuredData = {
                 InspectionLotNode: {
                     ...lotData[0],

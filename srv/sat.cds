@@ -136,4 +136,63 @@ service InspectionService {
     }
 ],
     );
-}
+
+    annotate InspectionLot with @(
+        Capabilities.SearchRestrictions : {false},
+        Capabilities.DeleteRestrictions : {
+            $Type : 'Capabilities.DeleteRestrictionsType',
+            Deletable: false
+        },
+        UI.PresentationVariant :{
+        SortOrder : [
+            {
+                Property : InspectionLot,
+                Descending : true,
+            },
+        ],
+        Visualizations : [ 
+            '@UI.LineItem',
+        ],
+    },
+
+        UI.LineItem: [
+        {
+            $Type: 'UI.DataField',
+            Value: InspectionLot
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Material
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Batch
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Plant
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: InspectionLotOrigin
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: GoodsMovementType
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: SalesOrder
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: SalesOrderItem
+        },
+        {
+            $Type: 'UI.DataField',
+            Value: Language
+        }
+    ],
+    UI.SelectionFields: [ InspectionLot, Material, Batch, Plant ]
+    );
+};
